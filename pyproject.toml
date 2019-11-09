@@ -10,9 +10,10 @@ flask = "^1.1"
 Flask-JWT = "^0.3.2"
 Flask-Restful = "^0.3.7"
 flask-mongoengine = "^0.9.5"
+pytest = "^5.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^3.0"
+pytest = "^5.2"
 
 [build-system]
 requires = ["poetry>=0.12"]
