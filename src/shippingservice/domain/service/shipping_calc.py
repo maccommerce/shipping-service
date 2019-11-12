@@ -6,6 +6,7 @@ from adapters.shipping_data import ShippingData
 
 
 class ShippingCalcService(ABC):
+    """docstring"""
 
     @abstractmethod
     def calculate_fee(shipping_info: ShippingData) -> float:
@@ -13,6 +14,7 @@ class ShippingCalcService(ABC):
 
 
 class RegionShippingCalc(ShippingCalcService):
+    """docstring"""
 
     def __init__(self, shipping_repo: RegionFeeRepository):
         self.shipping_repo = shipping_repo
