@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from repository.region_fee_base import RegionFeeBase
-from entity.shipping_request_entity import ShippingRequestEntity
-from adapters.shipping_data import ShippingData
+from ..repository.region_fee_base import RegionFeeBase
+from ..entity.shipping_request_entity import ShippingRequestEntity
+from ..adapters.shipping_data import ShippingData
 
 
 

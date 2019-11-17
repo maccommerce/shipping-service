@@ -1,7 +1,7 @@
-from region_fee_entity import RegionFeeEntity
+from .region_fee_entity import RegionFeeEntity
 
 
-class ShippingRequestEntity(Object):
+class ShippingRequestEntity(object):
 
     def __init__(
         self, zipcode: str, num_items: int, region_fee: RegionFeeEntity):
@@ -19,7 +19,7 @@ class ShippingRequestEntity(Object):
             total = self.__region_fee.base_price
         else:
             extra_items = (
-                self.__num_items - self.__region_fee.region.max_base_item1s
+                self.__num_items - self.__region_fee.region.max_base_items
             )
 
             extra_tax = self.__region_fee.region.extra_item_tax * extra_items

@@ -14,6 +14,7 @@ class RegionFee(RegionFeeBase):
         
     def findByZipcode(self, zipcode: int) -> RegionFeeEntity:
         """docstring"""
+
         query = {
             "region.start_zipcode": {"$lte": zipcode},
             "region.end_zipcode": {"$gte": zipcode}

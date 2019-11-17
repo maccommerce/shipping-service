@@ -1,6 +1,6 @@
-from service.shipping_calc import RegionShippingCalc
-from repository.region_fee_base import RegionFeeBase
-from shipping_data import ShippingData
+from ..service.shipping_calc import RegionShippingCalc
+from ..repository.region_fee_base import RegionFeeBase
+from .shipping_data import ShippingData
 
 
 class ShippingRequestAdapter(object):
@@ -16,6 +16,6 @@ class ShippingRequestAdapter(object):
     @classmethod
     def __shipping_to_data(cls, zipcode: str, quantity: int) -> ShippingData:
         """docstring"""
-        zipcode_value = int("".join(zipcode.split('-')))
-        return ZipcodeData(
-            label=zipcode, value=zipcode_value, quantity=quantity)
+        region_value = int(zipcode.split('-')[0])
+        return ShippingData(
+            label=zipcode, value=region_value, quantity=quantity)
