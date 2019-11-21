@@ -9,7 +9,7 @@ class ShippingCalcService(ABC):
     """docstring"""
 
     @abstractmethod
-    def calculate_fee(shipping_data: ShippingData) -> float:
+    def calculate_fee(self, shipping_data: ShippingData) -> float:
         raise NotImplementedError()
 
 

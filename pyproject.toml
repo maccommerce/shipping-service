@@ -7,10 +7,10 @@ authors = ["Alan Bandeira <alan.p.bandeira@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 flask = "^1.1"
-Flask-JWT = "^0.3.2"
 Flask-Restful = "^0.3.7"
 flask-mongoengine = "^0.9.5"
 pytest = "^5.2"
+flask-jwt-extended = "^3.24"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
