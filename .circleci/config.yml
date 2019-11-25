@@ -28,9 +28,13 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
 
       - run:
-        command: |
-          sudo pip install poetry
-          poetry install
+        name: Installing package manager
+        command: sudo pip install poetry
+          
+
+      - run:
+        name: Installing dependencies
+        command: poetry install
 
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
