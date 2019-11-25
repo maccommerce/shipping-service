@@ -38,6 +38,7 @@ jobs:
 
       - run:
           command: source .venv/bin/activate
+          command: pip freeze
 
       # - save_cache:
       #     key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
@@ -46,8 +47,8 @@ jobs:
       #       - "/usr/local/bin"
       #       - "/usr/local/lib/python3.7/site-packages"
 
-      - run:
-          command: pip freeze
+      # - run:
+      #     command: pip freeze
 
       - store_test_results:
           path: test-results
