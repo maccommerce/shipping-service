@@ -47,7 +47,7 @@ jobs:
       #       - "/usr/local/lib/python3.7/site-packages"
 
       - run:
-          command: pytest
+          command: pip freeze
 
       - store_test_results:
           path: test-results
