@@ -5,7 +5,11 @@ from flask_restful import Api
 from flask_mongoengine import MongoEngine
 from flask_jwt_extended import JWTManager
 from .config.app_config import ServiceConfig
+from .config import bootstrapDB
 from .web.resources.shipping_fee import ShippinCost
+
+
+bootstrapDB.run()
 
 app = Flask(__name__)
 app.config.from_object(ServiceConfig)
@@ -15,4 +19,6 @@ jwt = JWTManager(app)
 
 api.add_resource(ShippinCost, '/cost')
 
-from app import resources, web
+
+
+# from app import resources, web
