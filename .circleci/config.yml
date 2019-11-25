@@ -37,8 +37,9 @@ jobs:
           command: poetry install
 
       - run:
-          command: source .venv/bin/activate
-          command: pip freeze
+          command: |
+            source .venv/bin/activate
+            pip freeze
 
       # - save_cache:
       #     key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
