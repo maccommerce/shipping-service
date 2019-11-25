@@ -28,12 +28,12 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
 
       - run:
-        name: Installing package manager
+        # name: Installing package manager
         command: sudo pip install poetry
           
 
       - run:
-        name: Installing dependencies
+        # name: Installing dependencies
         command: poetry install
 
       - save_cache:
@@ -44,7 +44,7 @@ jobs:
             - "/usr/local/lib/python3.6/site-packages"
 
       - run:
-        name: Running build and tests
+        # name: Running build and tests
         command: pytest
 
       - store_test_results:
