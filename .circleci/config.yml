@@ -37,11 +37,11 @@ jobs:
       
       - run:
         # name: Installing dependencies
-          command: poetry install
+          command: source .venv/bin/activate
       
       - run:
         # name: Installing dependencies
-          command: source .venv/bin/activate
+          command: poetry install
 
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
