@@ -30,7 +30,11 @@ jobs:
       - run:
         # name: Installing package manager
           command: sudo pip install poetry
-
+      
+      - run:
+        # name: Installing package manager
+          command: poetry config settings.virtualenvs.in-project true
+      
       - run:
         # name: Installing dependencies
           command: poetry install
