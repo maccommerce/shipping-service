@@ -39,7 +39,7 @@ jobs:
       - run:
           command: |
             source .venv/bin/activate
-            pip freeze
+            pytest
 
       # - save_cache:
       #     key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
