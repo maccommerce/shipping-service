@@ -18,23 +18,22 @@ jobs:
         enviroment:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: verysecret
-    
+
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
-      
+
       - restore_cache:  # ensure this step occurs *before* installing dependencies
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
 
       - run:
         # name: Installing package manager
-        command: sudo pip install poetry
-          
+          command: sudo pip install poetry
 
       - run:
         # name: Installing dependencies
-        command: poetry install
+          command: poetry install
 
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "poetry.lock" }}
@@ -45,11 +44,11 @@ jobs:
 
       - run:
         # name: Running build and tests
-        command: pytest
+          command: pytest
 
       - store_test_results:
           path: test-results
-      
+
       - store_artifacts:
           path: test-results
           destination: tr1
