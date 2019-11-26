@@ -39,6 +39,7 @@ jobs:
       - run:
           command: |
             source .venv/bin/activate
+            python src/app/config/bootstrapDB.py
             pytest
 
       # - save_cache:

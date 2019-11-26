@@ -1,6 +1,9 @@
 import os
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 def run():
     """
@@ -13,7 +16,19 @@ def run():
 
     connection = MongoClient(os.environ["DATABASE_URL"])
 
+    connection.shipping.command(
+        "dropUser",
+        os.environ['MONGO_INITDB_ROOT_USERNAME'],
+    )
+
     connection.drop_database('shipping')
+
+    connection.shipping.command(
+        "createUser",
+        os.environ['MONGO_INITDB_ROOT_USERNAME'],
+        pwd=os.environ['MONGO_INITDB_ROOT_PASSWORD'],
+        roles=[{'role':'readWrite','db':'shipping'}]
+    )
 
     with open(raw_data_path, 'r') as fh:
         data = fh.read().split('\n')
