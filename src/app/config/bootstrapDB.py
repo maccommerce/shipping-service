@@ -16,10 +16,13 @@ def run():
 
     connection = MongoClient(os.environ["DATABASE_URL"])
 
-    connection.shipping.command(
-        "dropUser",
-        os.environ['MONGO_INITDB_ROOT_USERNAME'],
-    )
+    try:
+        connection.shipping.command(
+            "dropUser",
+            os.environ['MONGO_INITDB_ROOT_USERNAME'],
+        )
+    except:
+        pass
 
     connection.drop_database('shipping')
 
