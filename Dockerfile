@@ -4,4 +4,5 @@ WORKDIR /shipping_service
 ADD . /shipping-service
 RUN pip install poetry
 RUN poetry install
-CMD ["python", "src/run.py"]
+RUN export FLASK_APP=src/run.py
+CMD ["flask", "run"]

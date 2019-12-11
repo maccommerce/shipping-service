@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class ServiceConfig(object):
-    JWT_SECRET_KEY = 'your-256-bit-secret'
+class Config(object):
+    JWT_SECRET_KEY = os.environ['SECRET_KEY'] or 'very-shady-secret'
     MONGODB_SETTINGS = {
         'db': 'shipping',
         'host': os.environ["DATABASE_URL"]+'shipping',
@@ -14,13 +14,26 @@ class ServiceConfig(object):
         'password': os.environ['MONGO_INITDB_ROOT_PASSWORD']
     }
 
+    @staticmethod
+    def init_app(app):
+        pass
 
-class DevConfig(object):
 
-    JWT_SECRET_KEY = 'your-256-bit-secret'
-    MONGODB_SETTINGS = {
-        'db': 'shipping',
-        'host': os.environ["DATABASE_URL"]+'shipping',
-        'username': os.environ['MONGO_INITDB_ROOT_USERNAME'],
-        'password': os.environ['MONGO_INITDB_ROOT_PASSWORD']
-    }
+class ProductionConfig(Config):
+    pass
+
+
+class TestingConfig(Config):
+    TESTING=True
+
+
+class DevelopmentConfig(Config):
+    DEBUG=True
+
+env_config = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig,
+    'test': TestingConfig,
+
+    'default': DevelopmentConfig,
+}
