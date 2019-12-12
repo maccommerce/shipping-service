@@ -13,7 +13,7 @@ api = Api(api_blueprint)
 db = MongoEngine()
 
 
-def create_prod_app(config_name: str) -> Flask:
+def create_dev_app(config_name: str) -> Flask:
     """
     Build Flask application and setup development configurations
     """
@@ -31,7 +31,7 @@ def create_prod_app(config_name: str) -> Flask:
     return app
 
 
-def create_dev_app(config: str) -> Flask:
+def create_prod_app(config: str) -> Flask:
     """
     Build Flask application and setup production configurations 
     """
