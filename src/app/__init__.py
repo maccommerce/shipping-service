@@ -3,7 +3,6 @@ __version__ = '0.1.0'
 from flask import Flask
 from flask_restful import Api
 from flask_mongoengine import MongoEngine
-from flask_jwt_extended import JWTManager
 from .config.app_config import env_config
 from .config import bootstrapDB
 from .web.resources.shipping_fee import ShippingCost
@@ -12,7 +11,6 @@ from .web.router.blueprints import api_blueprint
 
 api = Api(api_blueprint)
 db = MongoEngine()
-jwt = JWTManager()
 
 
 def create_prod_app(config_name: str) -> Flask:
@@ -39,14 +37,6 @@ def create_dev_app(config: str) -> Flask:
     """
     
     pass
-
-
-
-# app = Flask(__name__)
-# app.config.from_object(DevConfig)
-# api = Api(app)
-# db = MongoEngine(app)
-# jwt = JWTManager(app)
 
 
 

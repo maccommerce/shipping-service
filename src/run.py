@@ -1,5 +1,5 @@
 # import app and run server
 import os
-from app import create_prod_app, db
+from app import create_dev_app
 
-app = create_prod_app(os.getenv('FLASK_CONFIG') or 'default')
+app = create_dev_app(os.getenv('FLASK_CONFIG') or 'default')
