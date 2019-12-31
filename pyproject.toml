@@ -9,12 +9,11 @@ python = "^3.7"
 flask = "^1.1"
 Flask-Restful = "^0.3.7"
 flask-mongoengine = "^0.9.5"
-pytest = "^5.2"
 python-dotenv = "^0.10.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.00"]
 build-backend = "poetry.masonry.api"

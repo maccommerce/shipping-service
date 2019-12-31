@@ -6,6 +6,7 @@ load_dotenv()
 
 
 class Config(object):
+    HOST = '0.0.0.0'
     JWT_SECRET_KEY = os.environ['SECRET_KEY'] or 'very-shady-secret'
     MONGODB_SETTINGS = {
         'db': 'shipping',
